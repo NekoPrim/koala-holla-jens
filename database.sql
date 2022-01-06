@@ -3,7 +3,7 @@ CREATE TABLE "koalas" (
     "name" VARCHAR(100) NOT NULL,
     "gender" VARCHAR(1) NOT NULL,
     "age" INTEGER,
-    "ready_to_transfer" BOOLEAN DEFAULT FALSE,
+    "ready_to_transfer" VARCHAR(1) DEFAULT 'N',
     "notes" VARCHAR(255)
     );
 

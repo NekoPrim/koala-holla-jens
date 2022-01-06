@@ -40,7 +40,7 @@ function onUpdateKoala(){
     method: 'PUT',
     url: `/koala/${koalaId}`,
     data: {
-      ready_to_transfer: true
+      ready_to_transfer: 'Y'
     }
   })
   .then(() => {
