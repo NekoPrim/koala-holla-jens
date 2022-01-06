@@ -34,7 +34,7 @@ koalaRouter.post("/", (req, res) => {
     req.body.name,
     req.body.age,
     req.body.gender,
-    req.body.ready_for_transfer,
+    req.body.ready_to_transfer,
     req.body.notes,
   ];
 
