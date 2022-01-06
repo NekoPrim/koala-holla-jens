@@ -138,7 +138,7 @@ function onDelete() {
       // send success
       console.log("ajax DELETE success!");
 
-      renderKoala(res);
+      getKoalas();
     })
     .catch((err) => {
       // send failure
