@@ -25,8 +25,9 @@ function setupClickListeners() {
     saveKoala(koalaToSend);
 
     // call delete function when clicked
-    $(document).on("click", "deleteBtn", onDelete);
   });
+
+  $(document).on("click", ".deleteBtn", onDelete);
 
   $(document).on("click", ".updateBtn", onUpdateKoala);
 }
@@ -80,6 +81,11 @@ function renderKoala(response) {
         <td>${response[i].gender}</td>
         <td>${response[i].ready_to_transfer}</td>
         <td>${response[i].notes}</td>
+        <td>
+          <button class="deleteBtn">
+            X
+          </button>
+        </td>
       </tr>
     `);
   }
@@ -131,10 +137,12 @@ function onDelete() {
     .then((res) => {
       // send success
       console.log("ajax DELETE success!");
+
+      renderKoala(res);
     })
     .catch((err) => {
       // send failure
-      console.log("ajax DELETE failed!");
+      console.log("ajax DELETE failed!", err);
     });
 }
 // end onDelete
