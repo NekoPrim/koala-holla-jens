@@ -56,14 +56,7 @@ koalaRouter.put('/:id', (req, res) => {
     console.log('transfer is ', req.body.koalaReady);
     
     //sQl query to change ready_to_transfer to true 
-    let queryText= `
-
-koalaRouter.put("/:id", (req, res) => {
-  //testing what 'id' and 'koalaReady' is
-  console.log("id is ", req.params.id);
-  console.log("true or false is ", req.body.koalaReady);
-
-  //sQl query to change ready_to_transfer to true
+   
   let queryText = `
         UPDATE "koalas" SET "ready_to_transfer" = $1 WHERE "id" = $2
     `;
