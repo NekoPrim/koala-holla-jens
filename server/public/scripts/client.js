@@ -50,16 +50,9 @@ function onUpdateKoala() {
   })
   .catch((err) => {
     console.log('PUT failed', err);
-      ready_to_transfer: true,
-    },
-  })
-    .then(() => {
-      console.log("PUT successful");
     })
-    .catch((err) => {
-      console.log("PUT failed", err);
-    });
-}
+};
+   
 
 function getKoalas() {
   console.log("in getKoalas");
