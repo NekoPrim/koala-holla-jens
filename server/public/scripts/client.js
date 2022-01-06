@@ -25,6 +25,29 @@ function setupClickListeners() {
     // call saveKoala with the new obejct
     saveKoala( koalaToSend );
   }); 
+
+  $(document).on('click', '.updateBtn', onUpdateKoala);
+}
+
+function onUpdateKoala(){
+  console.log('onUpdateKoala');
+  
+  let koalaId = $('this').parents('tr').data('id');
+  let koalaReady = $('this').parents('tr').data('ready_to_transfer');
+
+  $.ajax({
+    method: 'PUT',
+    url: `/koala/${koalaId}`,
+    data: {
+      read_to_transfer: true
+    }
+  })
+  .then(() => {
+    console.log('PUT successful');
+  })
+  .catch((err) => {
+    console.log('PUT failed', err);
+  })
 }
 
 function getKoalas(){
