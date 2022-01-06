@@ -24,9 +24,9 @@ koalaRouter.post("/", (req, res) => {
   //sQl query for putting a new row in the table
   let queryText = `
         INSERT INTO "koalas"
-            ("name", "age", "gender", "ready_for_transfer", "notes")
+            ("name", "age", "gender", "ready_to_transfer", "notes")
         VALUES
-            ($1, $2, $3. $4, $5)
+            ($1, $2, $3, $4, $5)
     `;
 
   //saving the code from hax

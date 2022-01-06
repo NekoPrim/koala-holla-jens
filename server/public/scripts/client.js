@@ -74,11 +74,11 @@ function renderKoala(response) {
   $("#viewKoalas").empty();
   for (let i = 0; i < response.length; i++) {
     $("#viewKoalas").append(`
-    <tr data-ready_to_transfer="${response[i].readyForTransfer}"data-id="${response[i].id}">
+    <tr data-ready_to_transfer="${response[i].ready_to_transfer}"data-id="${response[i].id}">
         <td>${response[i].name}</td>
         <td>${response[i].age}</td>
         <td>${response[i].gender}</td>
-        <td>${response[i].readyForTransfer}</td>
+        <td>${response[i].ready_to_transfer}</td>
         <td>${response[i].notes}</td>
       </tr>
     `);
@@ -97,7 +97,7 @@ function saveKoala(newKoala) {
     gender: $("#genderIn").val(),
     ready_to_transfer: $("#readyForTransferIn").val(),
     notes: $("#notesIn").val(),
-  };
+  };  
 
   $.ajax({
     type: "POST",
@@ -107,7 +107,7 @@ function saveKoala(newKoala) {
     //clearing out the input fields for future use
     $("#nameIn").val(" "),
       $("#ageIn").val(" "),
-      $("genderIn").val(" "),
+      $("#genderIn").val(" "),
       $("#readyForTransferIn").val(" "),
       $("#notesIn").val(" ");
 
