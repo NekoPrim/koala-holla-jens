@@ -60,4 +60,26 @@ function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
  
+  let koalaObject = {
+    name: $('#nameIn').val(),
+    age: $('#ageIn').val(),
+    gender: $('#genderIn').val(),
+    ready_to_transfer: $('#readyForTransferIn').val(),
+    notes: $('#notesIn').val()
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '/koala',
+    data: koalaObject
+  })
+  .then(function(response){
+    $('#nameIn').val(' '),
+    $('#ageIn').val(' '),
+    $('genderIn').val(' '),
+    $('#readyForTransferIn').val(' '),
+    $('#notesIn').val(' ')
+    
+    getKoalas();
+  })
 }

@@ -8,7 +8,31 @@ const koalaRouter = express.Router();
 
 
 // POST
+koalaRouter.post('/', (req, res) => {
+    let queryText = `
+        INSERT INTO "koalas"
+            ("name", "age", "gender", "ready_for_transfer", "notes")
+        VALUES
+            ($1, $2, $3. $4, $5)
+    `;
 
+    let queryParams = [
+        req.body.name,
+        req.body.age,
+        req.body.gender,
+        req.body.ready_for_transfer,
+        req.body.notes
+    ]
+
+    pool.query(queryText, queryParams)
+        .then((dbRes) => {
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log('POST failed', err);
+            res.sendStatus(500);
+        })
+})
 
 // PUT
 koalaRouter.put('/:id', (req, res) => {
