@@ -1,8 +1,8 @@
 CREATE TABLE "koalas" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(100) NOT NULL,
-    "gender" TEXT(1) NOT NULL,
-    "age" INTEGER(2),
+    "gender" VARCHAR(1) NOT NULL,
+    "age" INTEGER,
     "ready_to_transfer" BOOLEAN DEFAULT FALSE,
     "notes" VARCHAR(255)
     );
