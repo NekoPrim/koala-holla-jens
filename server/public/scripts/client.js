@@ -25,7 +25,7 @@ function setupClickListeners() {
     // call saveKoala with the new object
     saveKoala( koalaToSend );
 
-    // delete function
+    // call delete function when clicked
     $(document).on('click', 'deleteBtn', onDelete);
   }); 
 }
@@ -40,4 +40,28 @@ function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
 
+}
+
+
+// delete function
+function onDelete() {
+  console.log('in onDelete');
+
+  // capture koala id
+  let koalaId = $(this).parents.('tr').data('id');
+  console.log('koala id:'koalaId);
+
+  // send koala id to server side
+  $.ajax({
+    method: 'DELETE',
+    url: `/koala/${koalaId}`
+  })
+    .then((res) => {
+      // send success
+      console.log('ajax DELETE success!');
+    })
+    .catch((err) => {
+      // send failure
+      console.log('ajax DELETE failed!');
+    })
 }
