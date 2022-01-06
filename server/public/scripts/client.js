@@ -22,7 +22,7 @@ function setupClickListeners() {
       readyForTransfer: 'testName',
       notes: 'testName',
     };
-    // call saveKoala with the new obejct
+    // call saveKoala with the new object
     saveKoala( koalaToSend );
   }); 
 
@@ -30,6 +30,7 @@ function setupClickListeners() {
 }
 
 function onUpdateKoala(){
+  //checking if we are in onUpdateKoala
   console.log('onUpdateKoala');
   
   let koalaId = $('this').parents('tr').data('id');
@@ -39,7 +40,7 @@ function onUpdateKoala(){
     method: 'PUT',
     url: `/koala/${koalaId}`,
     data: {
-      read_to_transfer: true
+      ready_to_transfer: true
     }
   })
   .then(() => {
@@ -57,7 +58,32 @@ function getKoalas(){
 } // end getKoalas
 
 function saveKoala( newKoala ){
+  //testing what newKoala is 
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
  
+  //new object to store the values
+  let koalaObject = {
+    name: $('#nameIn').val(),
+    age: $('#ageIn').val(),
+    gender: $('#genderIn').val(),
+    ready_to_transfer: $('#readyForTransferIn').val(),
+    notes: $('#notesIn').val()
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '/koala',
+    data: koalaObject
+  })
+  .then(function(response){
+    //clearing out the input fields for future use
+    $('#nameIn').val(' '),
+    $('#ageIn').val(' '),
+    $('genderIn').val(' '),
+    $('#readyForTransferIn').val(' '),
+    $('#notesIn').val(' ')
+    
+    getKoalas();
+  })
 }
