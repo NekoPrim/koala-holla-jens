@@ -97,7 +97,7 @@ function saveKoala(newKoala) {
     gender: $("#genderIn").val(),
     ready_to_transfer: $("#readyForTransferIn").val(),
     notes: $("#notesIn").val(),
-  };
+  };  
 
   $.ajax({
     type: "POST",
@@ -107,7 +107,7 @@ function saveKoala(newKoala) {
     //clearing out the input fields for future use
     $("#nameIn").val(" "),
       $("#ageIn").val(" "),
-      $("genderIn").val(" "),
+      $("#genderIn").val(" "),
       $("#readyForTransferIn").val(" "),
       $("#notesIn").val(" ");
 
