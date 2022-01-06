@@ -79,7 +79,11 @@ function renderKoala(response) {
         <td>${response[i].name}</td>
         <td>${response[i].age}</td>
         <td>${response[i].gender}</td>
-        <td>${response[i].ready_to_transfer}</td>
+        <td>
+        ${response[i].ready_to_transfer}
+          <button class="transferBtn">
+          🚔 Transfer Koala
+          </button></td>
         <td>${response[i].notes}</td>
         <td>
           <button class="deleteBtn">
