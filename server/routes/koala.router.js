@@ -9,6 +9,7 @@ const koalaRouter = express.Router();
 
 // POST
 koalaRouter.post('/', (req, res) => {
+    //sQl query for putting a new row in the table
     let queryText = `
         INSERT INTO "koalas"
             ("name", "age", "gender", "ready_for_transfer", "notes")
@@ -16,6 +17,7 @@ koalaRouter.post('/', (req, res) => {
             ($1, $2, $3. $4, $5)
     `;
 
+    //saving the code from hax
     let queryParams = [
         req.body.name,
         req.body.age,
@@ -36,13 +38,16 @@ koalaRouter.post('/', (req, res) => {
 
 // PUT
 koalaRouter.put('/:id', (req, res) => {
+    //testing what 'id' and 'koalaReady' is
     console.log('id is ', req.params.id);
     console.log('true or false is ', req.body.koalaReady);
     
+    //sQl query to change ready_to_transfer to true 
     let queryText= `
         UPDATE "koalas" SET "ready_to_transfer" = $1 WHERE "id" = $2
     `;
 
+    //NO HAX
     let queryParams = [
         req.body.koalaReady,
         req.params.id

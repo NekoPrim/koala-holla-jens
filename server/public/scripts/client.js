@@ -22,7 +22,7 @@ function setupClickListeners() {
       readyForTransfer: 'testName',
       notes: 'testName',
     };
-    // call saveKoala with the new obejct
+    // call saveKoala with the new object
     saveKoala( koalaToSend );
   }); 
 
@@ -30,6 +30,7 @@ function setupClickListeners() {
 }
 
 function onUpdateKoala(){
+  //checking if we are in onUpdateKoala
   console.log('onUpdateKoala');
   
   let koalaId = $('this').parents('tr').data('id');
@@ -57,9 +58,11 @@ function getKoalas(){
 } // end getKoalas
 
 function saveKoala( newKoala ){
+  //testing what newKoala is 
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
  
+  //new object to store the values
   let koalaObject = {
     name: $('#nameIn').val(),
     age: $('#ageIn').val(),
@@ -74,6 +77,7 @@ function saveKoala( newKoala ){
     data: koalaObject
   })
   .then(function(response){
+    //clearing out the input fields for future use
     $('#nameIn').val(' '),
     $('#ageIn').val(' '),
     $('genderIn').val(' '),
