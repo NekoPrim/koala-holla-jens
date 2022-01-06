@@ -51,7 +51,7 @@ function onDelete() {
   let koalaId = $(this).parents.('tr').data('id');
   console.log('koala id:'koalaId);
 
-  // send koala id to server side
+  // ajax call to server to send koala id
   $.ajax({
     method: 'DELETE',
     url: `/koala/${koalaId}`
@@ -64,4 +64,4 @@ function onDelete() {
       // send failure
       console.log('ajax DELETE failed!');
     })
-}
+} // end onDelete
