@@ -30,6 +30,8 @@ function setupClickListeners() {
 function getKoalas(){
   console.log( 'in getKoalas' );
   // ajax call to server to get koala
+
+  
     $("#viewKoalas").empty();
     $.ajax({
         type: 'GET',
@@ -37,6 +39,17 @@ function getKoalas(){
     }).then(function(response) {
       console.log('GET /koalas response', response);
       // Appended Table
+      for(let i =0; i < response.length; i++) {
+        $('#viewKoalas').append(`
+        <tr data-ready_to_transfer="${response[i].readyForTransfer}"data-id="${response[i].id}>
+            <td>${response[i].name}</td>
+            <td>${response[i].age}</td>
+            <td>${response[i].gender}</td>
+            <td>${response[i].readyForTransfer}</td>
+            <td>${response[i].notes}</td>
+          </tr>
+        `)
+      }
     })
 } // end getKoalas
 
