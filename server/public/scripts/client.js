@@ -22,8 +22,11 @@ function setupClickListeners() {
       readyForTransfer: 'testName',
       notes: 'testName',
     };
-    // call saveKoala with the new obejct
+    // call saveKoala with the new object
     saveKoala( koalaToSend );
+
+    // delete function
+    $(document).on('click', 'deleteBtn', onDelete);
   }); 
 }
 
@@ -36,5 +39,5 @@ function getKoalas(){
 function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
- 
+
 }
