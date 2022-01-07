@@ -1,0 +1,21 @@
+body {
+    background-color: lightsteelblue;
+    margin: 0 auto;
+}
+
+header {
+    background-color: darkgray;
+    border-bottom: 2px solid darkslategray;
+    color: darkslategray;
+}
+
+.companyInfo {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.icon {
+    height: 100px;
+}
