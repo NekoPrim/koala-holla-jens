@@ -36,8 +36,8 @@ function onUpdateKoala() {
   //checking if we are in onUpdateKoala
   console.log("onUpdateKoala");
 
-  let koalaId = $("this").parents("tr").data("id");
-  let koalaReady = $("this").parents("tr").data("ready_to_transfer");
+  let koalaId = $(this).parents('td').data("id");
+  console.log($(this).parents('td'));
 
   $.ajax({
     method: "PUT",
@@ -48,6 +48,7 @@ function onUpdateKoala() {
   })
   .then(() => {
     console.log('PUT successful');
+   getKoalas();
   })
   .catch((err) => {
     console.log('PUT failed', err);
@@ -73,6 +74,7 @@ function getKoalas() {
 
 function renderKoala(response) {
   $("#viewKoalas").empty();
+  console.log(response);
   for (let i = 0; i < response.length; i++) {
     if (`${response[i].ready_to_transfer} === 'N'`){ 
     $("#viewKoalas").append(`
@@ -94,7 +96,7 @@ function renderKoala(response) {
       </tr>
     `);
   }
-    else if (`${response[i].ready_to_transfer} === 'Y'`) {
+    else  {
       $("#viewKoalas").append(`
       <tr data-ready_to_transfer="${response[i].ready_to_transfer}"data-id="${response[i].id}">
           <td>${response[i].name}</td>

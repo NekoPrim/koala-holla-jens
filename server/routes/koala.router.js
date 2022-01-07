@@ -12,7 +12,7 @@ koalaRouter.get("/", (req, res) => {
     .query(queryText)
     .then((dbRes) => {
       res.send(dbRes.rows);
-    })
+     })
     .catch((err) => {
       console.log("GET /songs failed", err);
       res.sendStatus(500);
@@ -53,17 +53,21 @@ koalaRouter.post("/", (req, res) => {
 koalaRouter.put('/:id', (req, res) => {
     //testing what 'id' and 'koalaReady' is
     console.log('id is ', req.params.id);
-    console.log('transfer is ', req.body.koalaReady);
+    console.log('transfer is ', req.body.ready_to_transfer);
     
     //sQl query to change ready_to_transfer to true 
    
-  let queryText = `
-        UPDATE "koalas" SET "ready_to_transfer" = $1 WHERE "id" = $2
-    `;
+  let queryText = ``;
+  if(req.body.ready_to_transfer === 'Y') { queryText =
+    `UPDATE "koalas" SET "ready_to_transfer" = 'Y' WHERE "id" = $1`
+  } else 
+      {queryText =`UPDATE "koalas" SET "ready_to_transfer" = 'N' WHERE "id" = $1`
+      }; 
 
   //NO HAX
-  let queryParams = [req.body.koalaReady, req.params.id];
-
+  let queryParams = [req.params.id];
+console.log(queryText);
+console.log(queryParams);
   pool
     .query(queryText, queryParams)
     .then((dbRes) => {
