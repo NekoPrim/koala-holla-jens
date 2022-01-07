@@ -30,6 +30,8 @@ function setupClickListeners() {
   $(document).on("click", ".deleteBtn", onDelete);
 
   $(document).on("click", ".updateBtn", onUpdateKoala);
+
+  $(document).on("click", ".transferBtn", onTransfer)
 }
 
 function onUpdateKoala() {
@@ -79,7 +81,11 @@ function renderKoala(response) {
         <td>${response[i].name}</td>
         <td>${response[i].age}</td>
         <td>${response[i].gender}</td>
-        <td>${response[i].ready_to_transfer}</td>
+        <td>
+        ${response[i].ready_to_transfer}
+          <button class="transferBtn">
+          🚔 Transfer Koala
+          </button></td>
         <td>${response[i].notes}</td>
         <td>
           <button class="deleteBtn">
@@ -146,3 +152,8 @@ function onDelete() {
     });
 }
 // end onDelete
+
+function onTransfer() {
+  console.log('Koala Transferred');
+
+}
