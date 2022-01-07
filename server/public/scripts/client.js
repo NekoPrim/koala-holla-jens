@@ -29,9 +29,7 @@ function setupClickListeners() {
 
   $(document).on("click", ".deleteBtn", onDelete);
 
-  $(document).on("click", ".updateBtn", onUpdateKoala);
-
-  $(document).on("click", ".transferBtn", onTransfer)
+  $(document).on("click", ".transferBtn", onUpdateKoala);
 }
 
 function onUpdateKoala() {
@@ -76,12 +74,13 @@ function getKoalas() {
 function renderKoala(response) {
   $("#viewKoalas").empty();
   for (let i = 0; i < response.length; i++) {
+    if (`${response[i].ready_to_transfer} === 'N'`){ 
     $("#viewKoalas").append(`
     <tr data-ready_to_transfer="${response[i].ready_to_transfer}"data-id="${response[i].id}">
         <td>${response[i].name}</td>
         <td>${response[i].age}</td>
         <td>${response[i].gender}</td>
-        <td>
+        <td data-id="${response[i].id}">
         ${response[i].ready_to_transfer}
           <button class="transferBtn">
           🚔 Transfer Koala
@@ -94,6 +93,24 @@ function renderKoala(response) {
         </td>
       </tr>
     `);
+  }
+    else if (`${response[i].ready_to_transfer} === 'Y'`) {
+      $("#viewKoalas").append(`
+      <tr data-ready_to_transfer="${response[i].ready_to_transfer}"data-id="${response[i].id}">
+          <td>${response[i].name}</td>
+          <td>${response[i].age}</td>
+          <td>${response[i].gender}</td>
+          <td>${response[i].ready_to_transfer}</td>
+          <td>${response[i].notes}</td>
+          <td>
+            <button class="deleteBtn">
+              X
+            </button>
+          </td>
+        </tr>
+      `);
+
+    }
   }
 }
 
@@ -153,7 +170,3 @@ function onDelete() {
 }
 // end onDelete
 
-function onTransfer() {
-  console.log('Koala Transferred');
-
-}
