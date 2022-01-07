@@ -1,34 +1,89 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <title>Koalla Holla</title>
+
     <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
+
     <link rel="stylesheet" href="./styles/style.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Shizuru&display=swap" rel="stylesheet">
+
   </head>
+
   <body>
+
     <header>
+
       <img src="images/icon.png" class="icon" />
-        <h1>Koalla Holla</h1>
-        <div class="companyInfo">
-        <h3>1976 Llama Comma Drive</h3>
-        <h3>Walla Walla, WA</h3>
+
+      <h1>Koalla Holla</h1>
+
+      <div class="companyInfo">
+        <h6>1976 Llama Comma Drive</h6>
+        <h6>Walla Walla, WA</h6>
       </div>
+
     </header>
+
     <section id="addKoala">
+
       <h2>Add Koala</h2>
-      <input type="text" id="nameIn" value="" placeholder="Name">
-      <input type="text" id="ageIn" value="" placeholder="Age">
-      <input type="text" id="genderIn" value="" placeholder="Gender">
-      <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
-      <input type="text" id="notesIn" value="" placeholder="Notes">
-      <button type="button" id="addButton">Add Koala</button>
+
+      <input 
+        type="text" 
+        id="nameIn" 
+        value="" 
+        placeholder="Name"
+      >
+
+      <input 
+        type="text"  
+        id="ageIn" 
+        value="" 
+        placeholder="Age"
+      >
+
+      <input 
+        type="text" 
+        id="genderIn" 
+        value="" 
+        placeholder="Gender"
+      >
+
+      <input 
+        type="text" 
+        id="readyForTransferIn" 
+        value="" 
+        placeholder="Transfer"
+      >
+
+      <input 
+        type="text" 
+        id="notesIn" 
+        value="" 
+        placeholder="Notes"
+        >
+
+      <button 
+        type="button" 
+        id="addButton"
+      >
+          Add Koala
+      </button>
+
     </section>
+
     <section>
+
       <h2>All Koalas</h2>
+
       <table class="table">
         <thead>
           <tr>
@@ -42,6 +97,7 @@
         <tbody id="viewKoalas">
         </tbody>
       </table>
+
     </section>
   </body>
 </html>
