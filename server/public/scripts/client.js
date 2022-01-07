@@ -37,13 +37,14 @@ function onUpdateKoala() {
   console.log("onUpdateKoala");
 
   let koalaId = $(this).parents('td').data("id");
+  let koalaReady = $(this).parents('tr').data('ready_to_transfer')
   console.log($(this).parents('td'));
 
   $.ajax({
     method: "PUT",
     url: `/koala/${koalaId}`,
     data: {
-      ready_to_transfer: 'Y'
+      ready_to_transfer: !koalaReady
     }
   })
   .then(() => {
@@ -76,7 +77,7 @@ function renderKoala(response) {
   $("#viewKoalas").empty();
   console.log(response);
   for (let i = 0; i < response.length; i++) {
-    if (`${response[i].ready_to_transfer} === 'N'`){ 
+    if (`${response[i].ready_to_transfer} === false`){ 
     $("#viewKoalas").append(`
     <tr data-ready_to_transfer="${response[i].ready_to_transfer}"data-id="${response[i].id}">
         <td>${response[i].name}</td>
@@ -96,23 +97,6 @@ function renderKoala(response) {
       </tr>
     `);
   }
-    else  {
-      $("#viewKoalas").append(`
-      <tr data-ready_to_transfer="${response[i].ready_to_transfer}"data-id="${response[i].id}">
-          <td>${response[i].name}</td>
-          <td>${response[i].age}</td>
-          <td>${response[i].gender}</td>
-          <td>${response[i].ready_to_transfer}</td>
-          <td>${response[i].notes}</td>
-          <td>
-            <button class="deleteBtn">
-              X
-            </button>
-          </td>
-        </tr>
-      `);
-
-    }
   }
 }
 

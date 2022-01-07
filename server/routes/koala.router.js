@@ -57,15 +57,12 @@ koalaRouter.put('/:id', (req, res) => {
     
     //sQl query to change ready_to_transfer to true 
    
-  let queryText = ``;
-  if(req.body.ready_to_transfer === 'Y') { queryText =
-    `UPDATE "koalas" SET "ready_to_transfer" = 'Y' WHERE "id" = $1`
-  } else 
-      {queryText =`UPDATE "koalas" SET "ready_to_transfer" = 'N' WHERE "id" = $1`
-      }; 
+  let queryText = `
+    UPDATE "koalas" SET "ready_to_transfer" = $1 WHERE "id" = $2
+  `;
 
   //NO HAX
-  let queryParams = [req.params.id];
+  let queryParams = [req.body.ready_to_transfer, req.params.id];
 console.log(queryText);
 console.log(queryParams);
   pool
