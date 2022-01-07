@@ -13,7 +13,7 @@ h1 {
     align-items: flex-start;
     display: flex;
     font-family: 'Shizuru', cursive;
-    font-size: 50%;
+    font-size: 70px !important;
     justify-content: center;
 }
 
@@ -24,10 +24,9 @@ h1 {
     justify-content: center;
 }
 
-
 .icon {
     border: 2px solid darkslategray;
     float: left;
     height: 80px;
-    margin: 2px 0 0 2px;
+    margin: 2px;
 }
