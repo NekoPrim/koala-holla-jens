@@ -1,0 +1,33 @@
+body {
+    background-color: lightsteelblue;
+    margin: 0 auto;
+}
+
+header {
+    background-color: darkgray;
+    border-bottom: 2px solid darkslategray;
+    color: darkslategray;
+}
+
+h1 {
+    display: flex;
+    align-items: flex-start;
+    font-size: 300px;
+    justify-content: center;
+}
+
+.companyInfo {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    font-size: 4px;
+    justify-content: space-around;
+}
+
+
+.icon {
+    border: 2px solid darkslategray;
+    float: left;
+    height: 80px;
+    margin: 2px 0 0 2px;
+}
