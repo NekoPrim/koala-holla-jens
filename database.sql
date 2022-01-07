@@ -3,7 +3,7 @@ CREATE TABLE "koalas" (
     "name" VARCHAR(100) NOT NULL,
     "gender" VARCHAR(1) NOT NULL,
     "age" INTEGER,
-    "ready_to_transfer" VARCHAR(1) DEFAULT 'N',
+    "ready_to_transfer" BOOLEAN DEFAULT FALSE,
     "notes" VARCHAR(255)
     );
 
@@ -16,7 +16,3 @@ CREATE TABLE "koalas" (
     ('Logan', 'M', 15, 'Loves the sauna'),
     ('Charlie', 'M', 9, 'Favorite band is Nirvana'),
     ('Betsy', 'F', 4, 'Has a pet iguana');
-
-    ALTER TABLE "koalas" DROP COLUMN "ready_to_transfer"
-
-    ALTER TABLE "koalas" ADD "ready_to_transfer" BOOLEAN DEFAULT FALSE
