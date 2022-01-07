@@ -146,7 +146,12 @@ function onDelete() {
     .then((res) => {
       // send success
       console.log("ajax DELETE success!");
-
+      sweetAlert({
+        title: "Delete Successful!",
+        text: "The koala has been removed!",
+        icon: "success",
+        button: "Continue",
+      })
       getKoalas();
     })
     .catch((err) => {
